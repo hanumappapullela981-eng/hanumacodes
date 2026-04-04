@@ -1,0 +1,544 @@
+body{
+font-family:Poppins;
+margin:0;
+background:#090015;
+color:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:15px 5%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-family:Cinzel;
+font-size:24px;
+color:#ffd700;
+}
+
+nav a{
+margin-left:20px;
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#ffd700;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+padding-top:60px; /* ✅ FIX for header overlap */
+}
+
+.cosmic{
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#2c0066,#090015);
+z-index:-1;
+}
+
+/* cosmic stars */
+
+.cosmic::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+radial-gradient(2px 2px at 200px 80px,#fff,transparent),
+radial-gradient(2px 2px at 300px 200px,#fff,transparent),
+radial-gradient(2px 2px at 400px 120px,#fff,transparent);
+opacity:0.3;
+}
+
+.hero h1{
+font-size:4rem;
+font-family:Cinzel;
+color:#ffd700;
+text-shadow:0 0 25px gold;
+}
+
+.hero-sub{
+font-size:1.5rem;
+margin-top:10px;
+}
+
+.hero-desc{
+max-width:600px;
+margin:auto;
+margin-top:20px;
+}
+
+.hero-buttons{
+margin-top:30px;
+}
+
+/* BUTTONS */
+
+.btn{
+background:#6a0dad;
+border:none;
+padding:12px 30px;
+border-radius:30px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#ffd700;
+color:black;
+}
+
+.btn-outline{
+border:2px solid gold;
+padding:12px 30px;
+margin-left:15px;
+border-radius:30px;
+background:none;
+color:gold;
+}
+
+/* SECTION */
+
+.section{
+padding:90px 10%;
+position:relative;
+z-index:1;
+}
+
+/* ===============================
+   ABOUT (FINAL CLEAN VERSION)
+=============================== */
+
+.about-container{
+  display:flex;
+  gap:30px;   /* reduced gap */
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* IMAGE BOX */
+.about-image-box{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex:0.8;   /* reduce image space */
+}
+
+/* PROFILE IMAGE */
+.about-image-box img{
+width:200px;
+height:200px;
+border-radius:50%;
+object-fit:cover;
+position:relative;
+z-index:2;
+}
+
+/* GLOW RING */
+.about-image-box::before{
+content:"";
+position:absolute;
+width:240px;
+height:240px;
+border-radius:50%;
+background:linear-gradient(45deg,gold,purple,#00f0ff,gold);
+animation:rotateRing 6s linear infinite;
+z-index:0;
+filter:blur(6px);
+}
+
+/* INNER DARK */
+.about-image-box::after{
+content:"";
+position:absolute;
+width:220px;
+height:220px;
+border-radius:50%;
+background:#090015;
+z-index:1;
+}
+
+/* TEXT */
+.about-text{
+  flex:1.2;
+  max-width:600px;
+  margin-left:-10px;   /* move text closer */
+}
+
+/* STATS (FIXED INLINE) */
+.about-stats{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+margin-top:20px;
+flex-wrap:nowrap;   /* 🔥 keeps in one line */
+}
+
+.about-stats div{
+flex:1;
+background:rgba(255,255,255,0.05);
+padding:15px;
+border-radius:10px;
+text-align:center;
+transition:0.3s;
+}
+
+.about-stats div:hover{
+transform:translateY(-5px);
+box-shadow:0 0 15px purple;
+}
+
+.about-stats h4{
+font-size:26px;
+color:gold;
+margin-bottom:5px;
+}
+
+.about-stats p{
+font-size:14px;
+opacity:0.8;
+}
+
+/* ===============================
+   SECTION GAP FIX
+=============================== */
+
+.section{
+padding:90px 10%;
+}
+
+#about{
+padding-bottom:10px;
+}
+
+#services{
+padding-top:10px;
+}
+
+/* SERVICES GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card-flip{
+perspective:1000px;
+height:300px;
+transition:0.3s;
+}
+
+.card-inner{
+position:relative;
+width:100%;
+height:100%;
+transition:transform 0.8s;
+transform-style:preserve-3d;
+}
+
+.card-flip.flipped .card-inner{
+transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+background:#140028;
+border-radius:15px;
+padding:20px;
+text-align:center;
+}
+
+.card-back{
+transform:rotateY(180deg);
+}
+
+.card-image{
+height:150px;
+background-size:cover;
+background-position:center;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+/* SERVICE IMAGES */
+
+.tarot{
+background-image:url('https://i.postimg.cc/V69pJk90/7f005e-1de50de9846747babfcbd5d4a210b57a-mv2.jpg')
+}
+
+.numerology{
+background-image:url('https://i.postimg.cc/437wPVq2/Whats-App-Image-2026-03-12-at-08-53-35.jpg')
+}
+
+.chakra{
+background-image:url('https://i.postimg.cc/HnQh2XJv/Whats-App-Image-2026-03-10-at-10-56-53-(2).jpg')
+}
+
+.love{
+background-image:url('https://i.postimg.cc/6pph8Kxy/images.jpg')
+}
+
+/* DAILY TAROT */
+
+.tarot-section{
+text-align:center;
+}
+
+.tarot-card{
+  width:200px;
+  height:280px;
+  margin:auto;
+  perspective:1000px;
+  cursor:pointer;
+}
+
+.tarot-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transition:transform 1s;
+  transform-style:preserve-3d;
+}
+
+.tarot-card.flipped .tarot-inner{
+  transform:rotateY(180deg);
+}
+
+.tarot-front,
+.tarot-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  backface-visibility:hidden;
+  padding:20px;
+  font-size:18px;
+}
+
+.tarot-front{
+  background:#1a0033;
+  box-shadow:0 0 25px purple;
+}
+
+.tarot-back{
+  background:linear-gradient(135deg,#140028,#2a004f);
+  transform:rotateY(180deg);
+  box-shadow:0 0 30px gold;
+  color:#ffd700;
+  white-space: pre-line;
+  transition: all 0.5s ease;
+}
+
+.tarot-card.flipped{
+  box-shadow:0 0 40px gold, 0 0 80px purple;
+}
+
+.tarot-card:hover{
+transform:scale(1.07);
+box-shadow:0 0 40px gold;
+}
+
+#tarotMessage{
+  margin-top:20px;
+  font-size:18px;
+  color:#ffd700;
+  max-width:400px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.6;
+  background:rgba(255,255,255,0.05);
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 0 15px purple;
+  transition:0.5s;
+}
+
+/* NUMEROLOGY CALCULATOR */
+
+.numerology-section{
+text-align:center;
+}
+
+.numerology-box{
+max-width:400px;
+margin:auto;
+background:#140028;
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 30px purple;
+}
+
+.numerology-box input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:none;
+margin-bottom:15px;
+font-size:16px;
+}
+
+#lifePathNumber{
+font-size:40px;
+color:#ffd700;
+margin-top:20px;
+}
+
+/* CONTACT */
+
+.contact-form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
+padding:12px;
+border-radius:8px;
+border:none;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px;
+background:#120021;
+}
+
+/* WHATSAPP FLOAT (✅ FIXED) */
+
+.whatsapp-float{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+z-index:9999; /* ✅ IMPORTANT FIX */
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+}
+
+/* PARTICLES */
+
+.particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+}
+
+.particle{
+width:3px;
+height:3px;
+background:white;
+position:absolute;
+border-radius:50%;
+animation:float linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-100vh)}
+}
+
+/* ===============================
+   CONTACT PREMIUM UPGRADE
+=============================== */
+
+.contact {
+  position: relative;
+  background: linear-gradient(135deg,#140028,#1f003d);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(106,13,173,0.5);
+}
+
+.contact::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  padding:2px;
+  background:linear-gradient(45deg,gold,purple,blue);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGlow 5s linear infinite;
+}
+
+@keyframes borderGlow {
+  0%{filter:hue-rotate(0deg)}
+  100%{filter:hue-rotate(360deg)}
+}
+
+.contact-form {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.03);
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: none;
+  box-shadow: 0 0 15px gold;
+  transform: scale(1.02);
+}
+
+.contact-form .btn:hover {
+  box-shadow: 0 0 20px gold, 0 0 40px purple;
+}
